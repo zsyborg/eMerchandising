@@ -483,7 +483,7 @@ export default function Home() {
                 )}
 
                 <div className="text-center pt-8">
-                       <h4 className=" block">Free audit worth £299 available this month only</h4>
+                       <h4 className=" block text-blac blackedk">Free audit worth £299 available this month only</h4>
 
                   <Button 
                     type="submit" 
