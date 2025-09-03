@@ -291,7 +291,7 @@ export default function Home() {
               </span>
             </h2>
             <p className="text-xl text-white/80 max-w-3xl mx-auto">
-              See how we've transformed businesses across industries with our data-driven approach and cutting-edge design.
+              See how we&apos;ve transformed businesses across industries with our data-driven approach and cutting-edge design.
             </p>
           </div>
           
@@ -304,7 +304,7 @@ export default function Home() {
                       <Star key={i} className="w-5 h-5 text-yellow-400 fill-current" />
                     ))}
                   </div>
-                  <p className="text-white/90 mb-8 italic text-lg leading-relaxed">"{testimonial.quote}"</p>
+                  <p className="text-white/90 mb-8 italic text-lg leading-relaxed">&apos;{testimonial.quote}&apos;</p>
                   <div className="flex items-center">
                     <div className="w-14 h-14 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center mr-4 group-hover:scale-110 transition-transform duration-300">
                       <span className="text-white font-bold text-lg">{testimonial.name.charAt(0)}</span>
@@ -337,7 +337,7 @@ export default function Home() {
               </span>
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto" id="leadform">
-              Get a personalized growth strategy session. We'll analyze your current digital presence and show you exactly how to increase conversions by 200%+.
+              Get a personalized growth strategy session. We&apos;ll analyze your current digital presence and show you exactly how to increase conversions by 200%+.
             </p>
           </div>
           
@@ -400,7 +400,7 @@ export default function Home() {
                       <SelectValue placeholder="Select an option" />
                     </SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="yes">Yes, I'm ready to invest</SelectItem>
+                      <SelectItem value="yes">Yes, I am ready to invest</SelectItem>
                       <SelectItem value="no">No, just exploring</SelectItem>
                     </SelectContent>
                   </Select>
@@ -431,7 +431,7 @@ export default function Home() {
                       <SelectItem value="1000-5000">£2,500 - £7,500 (Professional)</SelectItem>
                       <SelectItem value="5000-10000">£7,500 - £15,000 (Premium)</SelectItem>
                       <SelectItem value="over-10000">£15,000+ (Enterprise)</SelectItem>
-                      <SelectItem value="not-determined">Let's discuss options</SelectItem>
+                      <SelectItem value="not-determined">Let&apos;s discuss options</SelectItem>
                     </SelectContent>
                   </Select>
                 </div>
@@ -561,7 +561,7 @@ export default function Home() {
               </div>
               <p className="text-white/80 mb-8 text-lg leading-relaxed">
                 Transforming businesses with AI-powered web design, conversion psychology, and data-driven strategies. 
-                We don't just build websites, we engineer digital experiences that drive real results.
+                We don&apos;t just build websites, we engineer digital experiences that drive real results.
               </p>
               <div className="flex space-x-6">
                 <div className="w-12 h-12 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center hover:bg-white/20 transition-colors duration-300 cursor-pointer">
