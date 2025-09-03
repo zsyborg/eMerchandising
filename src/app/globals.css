@@ -48,3 +48,16 @@ option {
     font-size: clamp(2rem, 6vw, 3rem);
   }
 }
+
+
+input::placeholder{
+  color: #000000;
+}
+
+select::placeholder{
+  color: #000000;
+}
+
+textarea::placeholder{
+  color: #000000;
+}
