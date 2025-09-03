@@ -483,8 +483,7 @@ export default function Home() {
                 )}
 
                 <div className="text-center pt-8">
-                       <h4 className=" block text-blac blackedk">Free audit worth £299 available this month only</h4>
-
+                       <h4 className=" block text-black blacked">Free audit worth £299 available this month only</h4>
                   <Button 
                     type="submit" 
                     size="lg" 
@@ -499,9 +498,9 @@ export default function Home() {
                     ) : (
                       <>
 
-                        <Sparkles className="mr-3 h-6 w-6 group-hover:rotate-12 transition-transform duration-300" />
-                        Get My Free Strategy Session
-                        <ArrowRight className="ml-3 h-6 w-6 group-hover:translate-x-1 transition-transform duration-300" />
+                        {/* <Sparkles className="mr-3 h-6 w-6 group-hover:rotate-12 transition-transform duration-300" /> */}
+                        Get My Report
+                        {/* <ArrowRight className="ml-3 h-6 w-6 group-hover:translate-x-1 transition-transform duration-300" /> */}
                       </>
                     )}
                   </Button>
