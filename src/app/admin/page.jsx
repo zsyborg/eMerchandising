@@ -36,7 +36,7 @@ export default function AdminPage() {
 
   if (!authenticated) {
     return (
-      <div className="flex items-center justify-center h-screen">
+      <div className="flex items-center justify-center h-screen gradbg1">
         <form
           onSubmit={handleLogin}
           className="border p-6 rounded shadow-lg bg-white space-y-4"
@@ -63,7 +63,7 @@ export default function AdminPage() {
   }
 
   return (
-    <div className="p-6 text-center flex flex-col justify-center items-center">
+    <div className="p-6 text-center flex flex-col justify-center items-center gradbg1">
 
       <h1 className="text-2xl font-bold mb-4 text-center">All Leads</h1>
       {loading ? (
