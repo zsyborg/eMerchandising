@@ -417,7 +417,7 @@ Projects start from just £500, with solutions tailored for SMEs and growing e-c
                       <SelectValue placeholder="Select your business type" />
                     </SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="sme">Professional Services (Consultants, Lawyers, Accountants)</SelectItem>
+                      <SelectItem value="professional">Professional Services (Consultants, Lawyers, Accountants)</SelectItem>
                       <SelectItem value="ecommerce">E-commerce & Online Retail</SelectItem>
                       <SelectItem value="other">Other Industry</SelectItem>
                     </SelectContent>
@@ -503,7 +503,7 @@ Projects start from just £500, with solutions tailored for SMEs and growing e-c
                       <>
 
                         {/* <Sparkles className="mr-3 h-6 w-6 group-hover:rotate-12 transition-transform duration-300" /> */}
-                        Get My Report
+                        Submit
                         {/* <ArrowRight className="ml-3 h-6 w-6 group-hover:translate-x-1 transition-transform duration-300" /> */}
                       </>
                     )}

@@ -13,7 +13,7 @@ export async function POST(req) {
 
     const database = client.db("emerch");
     const collection = database.collection("leads");
-    
+
     // Insert one document into leads collection
     const result = await collection.insertOne(body);
 
@@ -49,7 +49,7 @@ export async function GET(req) {
 
             // Choose a name for your collection
             const collection = database.collection("leads");
-            const allData = await collection.find({}).toArray();
+            const allData = await collection.find({}).sort({ datetime: -1 }).toArray();
             return new Response(JSON.stringify(allData),{
                 status: 200,
                 headers: {'Content-Type': 'application/json'}

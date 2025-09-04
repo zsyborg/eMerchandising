@@ -6,6 +6,7 @@ export default function AdminPage() {
   const [authenticated, setAuthenticated] = useState(false);
   const [leads, setLeads] = useState([]);
   const [error, setError] = useState("");
+  const [loading, setLoading] = useState(true);
 
   async function handleLogin(e) {
     e.preventDefault();
@@ -19,7 +20,7 @@ export default function AdminPage() {
 
   async function fetchLeads() {
     try {
-      const res = await fetch("http://localhost:3000/api/lead");
+      const res = await fetch("https://e-merchandising.vercel.app/api/lead");
       if (res.ok) {
         const data = await res.json();
         setLeads(data);
@@ -28,6 +29,8 @@ export default function AdminPage() {
       }
     } catch (err) {
       setError("Error fetching data");
+    } finally {
+      setLoading(false);
     }
   }
 
@@ -60,10 +63,15 @@ export default function AdminPage() {
   }
 
   return (
-    <div className="p-6">
-      <h1 className="text-2xl font-bold mb-4">All Leads</h1>
-      {leads.length === 0 ? (
-        <p>No leads found.</p>
+    <div className="p-6 text-center flex flex-col justify-center items-center">
+
+      <h1 className="text-2xl font-bold mb-4 text-center">All Leads</h1>
+      {loading ? (
+          <>
+            <img src="/loader.gif" className="text-center w-20" alt="Loading..." />
+        </>
+      ) : leads.length === 0 ? (
+         <p className="text-gray-500">No leads found.</p>
       ) : (
         <table className="min-w-full border-collapse border border-gray-300">
           <thead>
@@ -94,13 +102,13 @@ export default function AdminPage() {
                 <td className="border border-gray-300 p-2">{lead.decision_maker}</td>
                 <td className="border border-gray-300 p-2">{lead.timeline}</td>
                 <td className="border border-gray-300 p-2">{lead.additional_info}</td>
-                <td className="border border-gray-300 p-2">{ new Date(lead.datetime).toLocaleString({
+                <td className="border border-gray-300 p-2">{ new Date(lead.datetime).toDateString({
                     year: "numeric",
                     month: "long",
                     day: "numeric",
                     hour: "2-digit",
                     minute: "2-digit",
-                }) }</td>
+                }) } {new Date(lead.datetime).toLocaleTimeString()}</td>
                 {/* <td className="border border-gray-300 p-2">
                   {new Date(lead.createdAt).toLocaleString()}
                 </td> */}
