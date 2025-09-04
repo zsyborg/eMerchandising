@@ -59,7 +59,7 @@ export default function Home() {
     setIsSubmitting(true);
     setSubmitMessage('');
     setSubmitStatus('');
-
+    const datetime = new Date().toISOString();
     try {
       const submitData = {
         name: formData.name,
@@ -71,10 +71,11 @@ export default function Home() {
         budget: formData.budget,
         decision_maker: formData.decisionMaker,
         timeline: formData.timeline,
-        additional_info: formData.additionalInfo || null
+        additional_info: formData.additionalInfo || null,
+        datetime: datetime
       };
 
-      const response = await axios.post(`https://e-merchandising.vercel.app/api/lead`, submitData);
+      const response = await axios.post('https://e-merchandising.vercel.app/api/lead', submitData);
       
       if (response.status === 201) {
         setSubmitStatus('success');
@@ -183,8 +184,10 @@ export default function Home() {
             
            
             <p className="text-xl md:text-2xl text-white/80 mb-2 max-w-4xl mx-auto leading-relaxed">
-             Websites that convert visitors into customers with built-in SEO & persuasive copywriting.
+             Websites that convert visitors into customers with built-in <br/>SEO & persuasive copywriting.
             </p>
+            <p className="text-white/80 py-4"><strong>Affordable & Scalable </strong><br/>
+Projects start from just £500, with solutions tailored for SMEs and growing e-commerce brands.</p>
             
             <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16">
               <Button size="lg" className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white px-10 py-6 text-lg font-medium shadow-2xl hover:shadow-purple-500/25 transform hover:-translate-y-1 transition-all duration-300 group" onClick={() => scrollToRef(section1Ref)}>

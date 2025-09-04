@@ -13,7 +13,7 @@ export async function POST(req) {
 
     const database = client.db("emerch");
     const collection = database.collection("leads");
-
+    
     // Insert one document into leads collection
     const result = await collection.insertOne(body);
 
