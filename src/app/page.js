@@ -74,7 +74,7 @@ export default function Home() {
         additional_info: formData.additionalInfo || null
       };
 
-      const response = await axios.post(`http://localhost:3000/api/lead`, submitData);
+      const response = await axios.post(`https://e-merchandising.vercel.app/api/lead`, submitData);
       
       if (response.status === 201) {
         setSubmitStatus('success');
