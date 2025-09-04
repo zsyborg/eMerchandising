@@ -74,12 +74,13 @@ export default function Home() {
         additional_info: formData.additionalInfo || null
       };
 
-      const response = await axios.post(`${API}/leads`, submitData);
+      const response = await axios.post(`http://localhost:3000/api/lead`, submitData);
       
-      if (response.status === 200) {
+      if (response.status === 201) {
         setSubmitStatus('success');
         setSubmitMessage('🎉 Amazing! Your consultation request has been submitted. Our AI-powered web strategy team will analyze your needs and contact you within 24 hours with a custom growth plan.');
         
+        console.log("Form submitted successfully:");
         setFormData({
           name: '',
           email: '',
