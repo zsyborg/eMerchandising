@@ -1,31 +1,35 @@
 "use client";
 
-import { useEffect } from "react";
-import Script from "next/script";
+import CookieConsent from "react-cookie-consent";
 
-export default function CookieConsent() {
-  useEffect(() => {
-    if (typeof cookieconsent !== "undefined") {
-      cookieconsent.run({
-        notice_banner_type: "headline",
-        consent_type: "express",
-        palette: "light",
-        language: "en",
-        page_load_consent_levels: ["strictly-necessary"],
-        notice_banner_reject_button_hide: false,
-        preferences_center_close_button_hide: false,
-        page_refresh_confirmation_buttons: false,
-        website_privacy_policy_url: "https://myweb.com",
-      });
-    }
-  }, []);
-
+export default function CookieBanner() {
   return (
-    <>
-      <Script
-        src="https://www.termsfeed.com/public/cookie-consent/4.2.0/cookie-consent.js"
-        strategy="afterInteractive"
-      />
-    </>
+    <CookieConsent
+      location="bottom"
+      buttonText="Accept"
+      declineButtonText="Decline"
+      enableDeclineButton
+      style={{
+        background: "#2B373B",
+        color: "white",
+        fontSize: "14px",
+      }}
+      buttonStyle={{
+        color: "#4e503b",
+        fontSize: "13px",
+      }}
+      expires={150}
+      onAccept={() => {
+        console.log("Cookies accepted");
+      }}
+      onDecline={() => {
+        console.log("Cookies declined");
+      }}
+    >
+      We use cookies to improve your experience.{" "}
+      <a href="/privacy-policy" style={{ color: "yellow", textDecoration: "underline" }}>
+        Learn more
+      </a>
+    </CookieConsent>
   );
 }
