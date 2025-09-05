@@ -63,7 +63,7 @@ export default function AdminPage() {
   }
 
   return (
-    <div className="p-6 text-center flex flex-col justify-center items-center gradbg1">
+    <div className="p-6 text-center flex flex-col justify-center items-center gradbg1 min-h-screen">
 
       <h1 className="text-2xl font-bold mb-4 text-center">All Leads</h1>
       {loading ? (

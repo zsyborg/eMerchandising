@@ -162,13 +162,25 @@ export default function Home() {
 
       {/* Hero Section */}
       <section className="relative z-40 py-12 px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-6">
+          <h2 className="text-white text-4xl font-black">Is Your Website &nbsp;
+            <span className="bg-gradient-to-t bg-clip-text text-transparent from-blue-500 via-indigo-600 to-blue-800 mb-8 leading-tight animate-gradient-y">
+              Costing You Clients?
+            </span>
+            </h2>
+          <ul className="mt-4 space-y-2 mylist">
+            <li className="text-white">❌ Outdated design drives visitors away</li>
+            <li className="text-white">❌ Poor SEO = no visibility on Google</li>
+            <li className="text-white">❌ Weak copy = low conversions</li>
+          </ul>
+        </div>
         <div className="max-w-7xl mx-auto text-center">
            <div className="inline-flex items-center px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-white/90 text-sm mb-8 animate-pulse-slow">
               <Zap className="w-4 h-4 mr-2 text-yellow-400" />
               AI-Powered Web Design • Conversion-Optimized • Results Guaranteed
             </div>
           <div className="animate-fade-in-up">
-            <h1 className="text-3xl md:text-4xl font-black bg-gradient-to-r bg-clip-text text-transparent from-blue-500 via-indigo-600 to-blue-800 mb-8 leading-tight animate-gradient-x">
+            <h1 className="text-3xl md:text-4xl font-black bg-gradient-to-b bg-clip-text text-transparent from-blue-500 via-indigo-600 to-blue-800 mb-8 leading-tight animate-gradient-x">
               Turn Your Website Into a&nbsp;
             <span className="text-3xl md:text-4xl font-black text-white mb-8 leading-tight">
              Client-Generating Machine
@@ -223,9 +235,9 @@ Projects start from just £500, with solutions tailored for SMEs and growing e-c
         </div>
 
         {/* Scroll Indicator */}
-        <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
+        {/* <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
           <ChevronDown className="w-6 h-6 text-white/60" />
-        </div>
+        </div> */}
       </section>
 
       {/* Services Section */}
@@ -524,13 +536,13 @@ Projects start from just £500, with solutions tailored for SMEs and growing e-c
       </section>
 
 
-<div className="flex z-20 pt-8 bg-gradient-to-br text-center justify-center items-center from-white via-blue-50 to-purple-50">
-  <h2 className="text-center text-2xl">
+<div className="flex z-20 pt-12 bg-gradient-to-br text-white text-center justify-center items-center">
+  <h2 className="text-center text-2xl ">
     Trusted by Businesses Across UK & EU
   </h2>
   <br/>
 </div>
-<div className="flex z-20 bg-gradient-to-br pb-12 text-center justify-center items-center from-white via-blue-50 to-purple-50">
+<div className="flex z-20 bg-gradient-to-br pb-12 text-white text-center justify-center items-center">
 
    {[...Array(5)].map((_, i) => (
      <Star key={i} className="w-5 h-5 text-yellow-400 fill-current" /> 
