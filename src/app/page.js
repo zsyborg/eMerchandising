@@ -10,12 +10,15 @@ import { Textarea } from './ui/textarea';
 import { CheckCircle, Globe, Search, PenTool, TrendingUp, Star, ArrowRight, Phone, Mail, MapPin, Loader2, Sparkles, Zap, Target, BarChart3, Users, Award, ChevronDown } from 'lucide-react';
 import { mockData } from './data/mock';
 import axios from 'axios';
-
+import ReCAPTCHA from "react-google-recaptcha";
 
 const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 const API = `${BACKEND_URL}/api`;
 
 export default function Home() {
+
+
+   const recaptchaRef = useRef();
 
 
   
@@ -60,6 +63,12 @@ export default function Home() {
     setSubmitMessage('');
     setSubmitStatus('');
     const datetime = new Date().toISOString();
+
+      if (!captchaToken) {
+      alert("Please verify the captcha first!");
+      return;
+    }
+
     try {
       const submitData = {
         name: formData.name,
@@ -204,7 +213,7 @@ Projects start from just £500, with solutions tailored for SMEs and growing e-c
             <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16">
               <Button size="lg" className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white px-10 py-6 text-lg font-medium shadow-2xl hover:shadow-purple-500/25 transform hover:-translate-y-1 transition-all duration-300 group" onClick={() => scrollToRef(section1Ref)}>
                 <Target className="w-5 h-5 mr-3 group-hover:rotate-12 transition-transform duration-300"  />
-               Get My Free Website Audit
+               Get My Free Website Audit Worth £299
                 <ArrowRight className="ml-3 h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />
               </Button>
               {/* <div className="text-white/70 text-center">
@@ -498,8 +507,17 @@ Projects start from just £500, with solutions tailored for SMEs and growing e-c
                   </div>
                 )}
 
-                <div className="text-center pt-8">
-                       <h4 className=" block text-black blacked">Free audit worth £299 available this month only</h4>
+<p>Callenttech Media needs the contact information you provide to us to contact you about our products and services. You may unsubscribe from these communications at any time. For information on how to unsubscribe, as well as our privacy practices and commitment to protecting your privacy, please review our Privacy Policy.</p>
+           {/* ✅ reCAPTCHA */}
+      
+                <div className="flex justify-center items-center flex-col text-center pt-8">
+                    
+      <ReCAPTCHA
+        ref={recaptchaRef}
+        sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
+        onChange={(token) => setCaptchaToken(token)}
+        className="mb-6"
+      />
                   <Button 
                     type="submit" 
                     size="lg" 
