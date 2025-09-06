@@ -18,8 +18,8 @@ const API = `${BACKEND_URL}/api`;
 export default function Home() {
 
 
-   const recaptchaRef = useRef();
-
+  const recaptchaRef = useRef();
+  const [captchaToken, setCaptchaToken] = useState("");
 
   
   const [formData, setFormData] = useState({
@@ -514,7 +514,7 @@ Projects start from just £500, with solutions tailored for SMEs and growing e-c
                     
       <ReCAPTCHA
         ref={recaptchaRef}
-        sitekey="6LcdEMArAAAAAAShyCHuVTIu8cbIH6_qi4dwwHh6"
+        sitekey="6LfIF8ArAAAAAPiTBcYEfHUkA5K2i_piGIZ3TVxl"
         onChange={(token) => setCaptchaToken(token)}
         className="mb-6"
       />
@@ -522,7 +522,7 @@ Projects start from just £500, with solutions tailored for SMEs and growing e-c
                     type="submit" 
                     size="lg" 
                     className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white px-16 py-6 text-xl font-medium shadow-2xl hover:shadow-purple-500/25 transform hover:-translate-y-1 transition-all duration-300 group"
-                    disabled={isSubmitting}
+                    disabled={!captchaToken}
                   >
                     {isSubmitting ? (
                       <>
