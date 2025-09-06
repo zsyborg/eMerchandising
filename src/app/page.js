@@ -11,7 +11,10 @@ import { CheckCircle, Globe, Search, PenTool, TrendingUp, Star, ArrowRight, Phon
 import { mockData } from './data/mock';
 import axios from 'axios';
 import ReCAPTCHA from "react-google-recaptcha";
-
+import { MdLocationOn } from "react-icons/md";
+import { TiLocation } from "react-icons/ti";
+import { FaPhoneAlt } from "react-icons/fa";
+import { MdOutlineEmail } from "react-icons/md";
 const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 const API = `${BACKEND_URL}/api`;
 
@@ -146,20 +149,21 @@ export default function Home() {
       </div>
 
       {/* Header */}
-      <header className="relative z-50 bg-white/10 backdrop-blur-md border-b border-white/20 sticky top-0">
+      <header className="relative z-50 bg-white/80 backdrop-blur-md border-b border-white/20 sticky top-0">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-4">
             <div className="flex items-center space-x-3 group">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+              {/* <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                 <Sparkles className="h-6 w-6 text-white" />
-              </div>
-              <span className="text-2xl font-bold bg-gradient-to-r from-white to-blue-200 bg-clip-text text-transparent">
+              </div> */}
+              <img src="/logo.png" alt="eMerchandising Logo" className="h-20 w-auto hidden sm:block" />
+              {/* <span className="text-2xl font-bold bg-gradient-to-r from-white to-blue-200 bg-clip-text text-transparent">
                 eMerchandising Agency
-              </span>
+              </span> */}
             </div>
             <nav className="hidden md:flex space-x-8">
-              {['Services', 'Portfolio', 'Testimonials', 'Contact'].map((item) => (
-                <a key={item} href={`#${item.toLowerCase()}`} className="text-white/80 hover:text-white transition-colors duration-300 relative group">
+              {['About', 'Portfolio', 'Testimonials', 'Contact'].map((item) => (
+                <a key={item} href={`#${item.toLowerCase()}`} className="text-black hover:text-blue-950 transition-colors duration-300 relative group">
                   {item}
                   <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-500 to-purple-500 group-hover:w-full transition-all duration-300"></span>
                 </a>
@@ -254,7 +258,7 @@ Projects start from just £500, with solutions tailored for SMEs and growing e-c
       </section>
 
       {/* Services Section */}
-      <section id="services" className="relative z-30 py-32 bg-gradient-to-br from-white via-blue-50 to-purple-50">
+      <section id="about" className="relative z-30 py-32 bg-gradient-to-br from-white via-blue-50 to-purple-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-20">
             <div className="inline-flex items-center px-4 py-2 rounded-full bg-blue-100 text-blue-800 text-sm font-medium mb-6">
@@ -518,7 +522,7 @@ Projects start from just £500, with solutions tailored for SMEs and growing e-c
                     
       <ReCAPTCHA
         ref={recaptchaRef}
-        sitekey="6LfIF8ArAAAAAPiTBcYEfHUkA5K2i_piGIZ3TVxl"
+        sitekey="6LcwKsArAAAAAB3YYR7TKgBKEmal19UDL2-xBjQl"
         onChange={(token) => setCaptchaToken(token)}
         className="mb-6"
       />
@@ -586,21 +590,22 @@ Projects start from just £500, with solutions tailored for SMEs and growing e-c
       {/* Footer */}
       <footer className="relative z-10 bg-gradient-to-br from-gray-900 via-purple-900 to-gray-900 text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-4 gap-12">
+          <div className="grid md:grid-cols-5 gap-12">
             <div className="col-span-2">
               <div className="flex items-center space-x-3 mb-6">
-                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center">
+                {/* <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center">
                   <Sparkles className="h-7 w-7 text-white" />
                 </div>
                 <span className="text-3xl font-bold bg-gradient-to-r from-white to-blue-200 bg-clip-text text-transparent">
                   eMerchandising Agency
-                </span>
+                </span> */}
+              <img src="/logo.png" alt="eMerchandising Logo" className="h-20 w-auto hidden sm:block bg-white" />
+
               </div>
               <p className="text-white/80 mb-8 text-lg leading-relaxed">
-                Transforming businesses with AI-powered web design, conversion psychology, and data-driven strategies. 
-                We don&apos;t just build websites, we engineer digital experiences that drive real results.
+               At Callent Tech Ltd, we believe in the power of innovation and the magic of creativity. Our mission is simple: to help businesses thrive in the digital age through tailored marketing strategies that deliver measurable results.
               </p>
-              <div className="flex space-x-6">
+              {/* <div className="flex space-x-6">
                 <div className="w-12 h-12 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center hover:bg-white/20 transition-colors duration-300 cursor-pointer">
                   <Phone className="h-6 w-6 text-blue-400" />
                 </div>
@@ -610,24 +615,86 @@ Projects start from just £500, with solutions tailored for SMEs and growing e-c
                 <div className="w-12 h-12 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center hover:bg-white/20 transition-colors duration-300 cursor-pointer">
                   <MapPin className="h-6 w-6 text-blue-400" />
                 </div>
-              </div>
+              </div> */}
             </div>
             <div>
               <h3 className="font-bold mb-6 text-xl">Services</h3>
               <ul className="space-y-3 text-white/70">
-                <li className="hover:text-white transition-colors duration-300 cursor-pointer">AI-Powered Design</li>
-                <li className="hover:text-white transition-colors duration-300 cursor-pointer">Conversion Optimization</li>
-                <li className="hover:text-white transition-colors duration-300 cursor-pointer">SEO & Growth</li>
-                <li className="hover:text-white transition-colors duration-300 cursor-pointer">E-commerce Solutions</li>
+                <li className="hover:text-white transition-colors duration-300 cursor-pointer">
+                  <a href="https://callenttech.com/data-solutions/">Data Solution</a></li>
+                <li className="hover:text-white transition-colors duration-300 cursor-pointer">
+                  <a href="https://callenttech.com/email-marketing/">Email Marketing</a></li>
+                <li className="hover:text-white transition-colors duration-300 cursor-pointer">
+                  <a href="https://callenttech.com/tele-marketing/">Tele Marketing</a></li>
+                <li className="hover:text-white transition-colors duration-300 cursor-pointer">
+                  <a href="https://callenttech.com/digital-marketing/">Digital Marketing</a></li>
               </ul>
             </div>
             <div>
-              <h3 className="font-bold mb-6 text-xl">Company</h3>
+              <h3 className="font-bold mb-6 text-xl">Links</h3>
               <ul className="space-y-3 text-white/70">
-                <li className="hover:text-white transition-colors duration-300 cursor-pointer">About Us</li>
-                <li className="hover:text-white transition-colors duration-300 cursor-pointer">Success Stories</li>
-                <li className="hover:text-white transition-colors duration-300 cursor-pointer">Contact</li>
-                <li className="hover:text-white transition-colors duration-300 cursor-pointer">Privacy Policy</li>
+                <li className="hover:text-white transition-colors duration-300 cursor-pointer">
+                  <a href="https://callenttech.com/">Home</a></li>
+                <li className="hover:text-white transition-colors duration-300 cursor-pointer">
+                  <a href="https://callenttech.com/about-us/">About</a></li>
+                <li className="hover:text-white transition-colors duration-300 cursor-pointer">
+                  <a href="https://callenttech.com/about-us/">Why Choose Callent?</a></li>
+                <li className="hover:text-white transition-colors duration-300 cursor-pointer">
+                  <a href="https://callenttech.com/privacy-policy/">Privacy Policy</a></li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="font-bold mb-6 text-xl">Information</h3>
+              <p className="text-yellow-400">United Kingdom</p>
+              <ul className="footerlist">
+                
+              </ul>
+              <ul className="footerlist">
+                <li className="inline-flex">
+                    <span className="text-2xl">
+                    <MdLocationOn />
+                  </span>
+                  <span>
+                  128 City Road,
+                  London EC1V 2NX
+                  </span>
+                </li>
+                <li>
+                  <span className="text-2xl">
+                    <FaPhoneAlt />
+                  </span>
+                  <span>&nbsp;+44 20 8163 4878</span>
+                </li>
+              </ul>
+
+
+              <p className="mt-4 text-yellow-400">United States of America</p>
+              <ul className="footerlist">
+                <li className="inline-flex">
+                    <span className="text-2xl">
+                    <MdLocationOn />
+                  </span>
+                  <span>
+                  8 The Green, Suite R,
+Kent, Dover, Delaware 19901
+                  </span>
+                </li>
+                <li>
+                  <span className="text-2xl">
+                    <FaPhoneAlt />
+                  </span>
+                  <span>&nbsp;+1 315 215 0225</span>
+                </li>
+
+                <li className="inline-flex mt-6">
+                    <span className="text-2xl">
+                    <MdOutlineEmail />
+                  </span>
+                  <span>&nbsp;
+                  contactus@callenttech.com
+                  </span>
+                </li>
+               
               </ul>
             </div>
           </div>

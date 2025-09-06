@@ -10,7 +10,7 @@ export default function AdminPage() {
 
   async function handleLogin(e) {
     e.preventDefault();
-    if (password === process.env.NEXT_PUBLIC_ADMIN_PASSWORD) {
+    if (password === 'tree@123') {
       setAuthenticated(true);
       fetchLeads();
     } else {

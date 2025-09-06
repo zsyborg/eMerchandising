@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "eMerchandising Agency",
+  title: "Callent Tech",
   description: " | Convert Your Website into revenue",
 };
 
