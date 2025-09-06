@@ -18,6 +18,7 @@ import { MdOutlineEmail } from "react-icons/md";
 const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 const API = `${BACKEND_URL}/api`;
 
+
 export default function Home() {
 
 
@@ -67,10 +68,10 @@ export default function Home() {
     setSubmitStatus('');
     const datetime = new Date().toISOString();
 
-    //   if (!captchaToken) {
-    //   alert("Please verify the captcha first!");
-    //   return;
-    // }
+      if (!captchaToken) {
+      alert("Please verify the captcha first!");
+      return;
+    }
 
     try {
       const submitData = {
@@ -87,16 +88,17 @@ export default function Home() {
         datetime: datetime
       };
 
-      const response = await axios.post('https://callenttech.adluminious.com/leads.php', submitData,{
+      const response = await axios.post('https://Callent Tech.adluminious.com/leads.php', submitData,{
         headers: {
           "Content-Type": "application/json"
         }
       });
       
-      if (response.status === 201) {
+      if (response.status === 200) {
         setSubmitStatus('success');
         setSubmitMessage('🎉 Amazing! Your consultation request has been submitted. Our AI-powered web strategy team will analyze your needs and contact you within 24 hours with a custom growth plan.');
         
+        window.location.href = "/thankyou.html"; 
         console.log("Form submitted successfully:");
         setFormData({
           name: '',
@@ -110,6 +112,7 @@ export default function Home() {
           timeline: '',
           additionalInfo: ''
         });
+
       }
     } catch (error) {
       console.error('Error submitting form:', error);
@@ -156,21 +159,21 @@ export default function Home() {
               {/* <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                 <Sparkles className="h-6 w-6 text-white" />
               </div> */}
-              <img src="/logo.png" alt="eMerchandising Logo" className="h-20 w-auto hidden sm:block" />
+              <img src="/logo.png" alt="Callent Tech Logo" className="md:h-20 h-12 w-auto sm:block" />
               {/* <span className="text-2xl font-bold bg-gradient-to-r from-white to-blue-200 bg-clip-text text-transparent">
-                eMerchandising Agency
+                Callent Tech Agency
               </span> */}
             </div>
-            <nav className="hidden md:flex space-x-8">
+            <nav className="md:flex space-x-8">
               {['About', 'Portfolio', 'Testimonials', 'Contact'].map((item) => (
-                <a key={item} href={`#${item.toLowerCase()}`} className="text-black hover:text-blue-950 transition-colors duration-300 relative group">
+                <a key={item} href={`#${item.toLowerCase()}`} className="text-black mobnav hover:text-blue-950 transition-colors duration-300 relative group">
                   {item}
                   <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-500 to-purple-500 group-hover:w-full transition-all duration-300"></span>
                 </a>
               ))}
             </nav>
-            <Button className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-300" onClick={() => scrollToRef(section1Ref)}>
-              <Phone className="w-4 h-4 mr-2" />
+            <Button className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-300 getstart md:block" onClick={() => scrollToRef(section1Ref)}>
+              {/* <Phone className="w-4 h-4 mr-2" /> */}
               Get Started
             </Button>
           </div>
@@ -454,10 +457,10 @@ Projects start from just £500, with solutions tailored for SMEs and growing e-c
                 </div>
 
                 <div className="space-y-2">
-                  <Label className="text-gray-800 font-medium text-lg">Investment budget for this project? *</Label>
+                  <Label className="text-gray-800 font-medium text-lg">Package Range *</Label>
                   <Select onValueChange={(value) => handleInputChange('budget', value)}>
                     <SelectTrigger className="mt-2 h-14 text-lg border-2 border-gray-200 focus:border-blue-500 bg-white/50">
-                      <SelectValue placeholder="Select your investment range" />
+                      <SelectValue placeholder="Choose what fits best" />
                     </SelectTrigger>
                     <SelectContent>
                       <SelectItem value="under-1000">Under £2,500 (Basic)</SelectItem>
@@ -515,7 +518,7 @@ Projects start from just £500, with solutions tailored for SMEs and growing e-c
                   </div>
                 )}
 
-<p>Callenttech Media needs the contact information you provide to us to contact you about our products and services. You may unsubscribe from these communications at any time. For information on how to unsubscribe, as well as our privacy practices and commitment to protecting your privacy, please review our Privacy Policy.</p>
+<p>Callent Tech Media needs the contact information you provide to us to contact you about our products and services. You may unsubscribe from these communications at any time. For information on how to unsubscribe, as well as our privacy practices and commitment to protecting your privacy, please review our Privacy Policy.</p>
            {/* ✅ reCAPTCHA */}
       
                 <div className="flex justify-center items-center flex-col text-center pt-8">
@@ -530,7 +533,7 @@ Projects start from just £500, with solutions tailored for SMEs and growing e-c
                     type="submit" 
                     size="lg" 
                     className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white px-16 py-6 text-xl font-medium shadow-2xl hover:shadow-purple-500/25 transform hover:-translate-y-1 transition-all duration-300 group"
-                    // disabled={!captchaToken}
+                    disabled={!captchaToken}
                   >
                     {isSubmitting ? (
                       <>
@@ -590,16 +593,16 @@ Projects start from just £500, with solutions tailored for SMEs and growing e-c
       {/* Footer */}
       <footer className="relative z-10 bg-gradient-to-br from-gray-900 via-purple-900 to-gray-900 text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-5 gap-12">
+          <div className="grid md:grid-cols-5 gap-12 justify-center items-center place-content-between place-items-center">
             <div className="col-span-2">
-              <div className="flex items-center space-x-3 mb-6">
+              <div className="flex items-center justify-center space-x-3 mb-6">
                 {/* <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center">
                   <Sparkles className="h-7 w-7 text-white" />
                 </div>
                 <span className="text-3xl font-bold bg-gradient-to-r from-white to-blue-200 bg-clip-text text-transparent">
-                  eMerchandising Agency
+                  Callent Tech Agency
                 </span> */}
-              <img src="/logo.png" alt="eMerchandising Logo" className="h-20 w-auto hidden sm:block bg-white" />
+              <img src="/logo.png" alt="Callent Tech Logo" className="h-20 w-auto sm:block bg-white" />
 
               </div>
               <p className="text-white/80 mb-8 text-lg leading-relaxed">
@@ -621,29 +624,29 @@ Projects start from just £500, with solutions tailored for SMEs and growing e-c
               <h3 className="font-bold mb-6 text-xl">Services</h3>
               <ul className="space-y-3 text-white/70">
                 <li className="hover:text-white transition-colors duration-300 cursor-pointer">
-                  <a href="https://callenttech.com/data-solutions/">Data Solution</a></li>
+                  <a href="https://Callent Tech.com/data-solutions/">Data Solution</a></li>
                 <li className="hover:text-white transition-colors duration-300 cursor-pointer">
-                  <a href="https://callenttech.com/email-marketing/">Email Marketing</a></li>
+                  <a href="https://Callent Tech.com/email-marketing/">Email Marketing</a></li>
                 <li className="hover:text-white transition-colors duration-300 cursor-pointer">
-                  <a href="https://callenttech.com/tele-marketing/">Tele Marketing</a></li>
+                  <a href="https://Callent Tech.com/tele-marketing/">Tele Marketing</a></li>
                 <li className="hover:text-white transition-colors duration-300 cursor-pointer">
-                  <a href="https://callenttech.com/digital-marketing/">Digital Marketing</a></li>
+                  <a href="https://Callent Tech.com/digital-marketing/">Digital Marketing</a></li>
               </ul>
             </div>
             <div>
               <h3 className="font-bold mb-6 text-xl">Links</h3>
               <ul className="space-y-3 text-white/70">
                 <li className="hover:text-white transition-colors duration-300 cursor-pointer">
-                  <a href="https://callenttech.com/">Home</a></li>
+                  <a href="https://Callent Tech.com/">Home</a></li>
                 <li className="hover:text-white transition-colors duration-300 cursor-pointer">
-                  <a href="https://callenttech.com/about-us/">About</a></li>
+                  <a href="https://Callent Tech.com/about-us/">About</a></li>
                 <li className="hover:text-white transition-colors duration-300 cursor-pointer">
-                  <a href="https://callenttech.com/about-us/">Why Choose Callent?</a></li>
+                  <a href="https://Callent Tech.com/about-us/">Why Choose Callent?</a></li>
                 <li className="hover:text-white transition-colors duration-300 cursor-pointer">
-                  <a href="https://callenttech.com/privacy-policy/">Privacy Policy</a></li>
+                  <a href="https://Callent Tech.com/privacy-policy/">Privacy Policy</a></li>
               </ul>
             </div>
-            <div>
+            <div className="col-span-2 md:col-auto">
               <h3 className="font-bold mb-6 text-xl">Information</h3>
               <p className="text-yellow-400">United Kingdom</p>
               <ul className="footerlist">
@@ -691,7 +694,10 @@ Kent, Dover, Delaware 19901
                     <MdOutlineEmail />
                   </span>
                   <span>&nbsp;
+                    <a href="mailto:contactus@callenttech.com">
+
                   contactus@callenttech.com
+                    </a>
                   </span>
                 </li>
                
@@ -700,8 +706,13 @@ Kent, Dover, Delaware 19901
           </div>
           <div className="border-t border-white/20 mt-16 pt-8 text-center">
             <p className="text-white/60">
-              &copy; 2024 eMerchandising Agency Limited. All rights reserved. | 
+              &copy; 2024 Callent Tech Agency Limited. All rights reserved. | 
               <span className="text-blue-400 ml-2">Engineered for results, designed for success.</span>
+            </p>
+            <p style={{fontSize: '12px'}}>
+              <a href="https://adluminious.com" rel="noopener noreferrer" className="text-white/60 hover:text-white transition-colors duration-300">
+                Powered by Adluminious Media & Tech
+              </a>
             </p>
           </div>
         </div>
