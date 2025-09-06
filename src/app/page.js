@@ -84,7 +84,11 @@ export default function Home() {
         datetime: datetime
       };
 
-      const response = await axios.post('https://callenttech.adluminious.com/leads.php', submitData);
+      const response = await axios.post('https://callenttech.adluminious.com/leads.php', submitData,{
+        headers: {
+          "Content-Type": "application/json"
+        }
+      });
       
       if (response.status === 201) {
         setSubmitStatus('success');
