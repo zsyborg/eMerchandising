@@ -20,7 +20,7 @@ export default function AdminPage() {
 
   async function fetchLeads() {
     try {
-      const res = await fetch("https://e-merchandising.vercel.app/api/lead");
+      const res = await fetch("https://callenttech.adluminious.com/leads.php");
       if (res.ok) {
         const data = await res.json();
         setLeads(data);

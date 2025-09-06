@@ -64,10 +64,10 @@ export default function Home() {
     setSubmitStatus('');
     const datetime = new Date().toISOString();
 
-      if (!captchaToken) {
-      alert("Please verify the captcha first!");
-      return;
-    }
+    //   if (!captchaToken) {
+    //   alert("Please verify the captcha first!");
+    //   return;
+    // }
 
     try {
       const submitData = {
@@ -84,7 +84,7 @@ export default function Home() {
         datetime: datetime
       };
 
-      const response = await axios.post('https://e-merchandising.vercel.app/api/lead', submitData);
+      const response = await axios.post('https://callenttech.adluminious.com/leads.php', submitData);
       
       if (response.status === 201) {
         setSubmitStatus('success');
@@ -522,7 +522,7 @@ Projects start from just £500, with solutions tailored for SMEs and growing e-c
                     type="submit" 
                     size="lg" 
                     className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white px-16 py-6 text-xl font-medium shadow-2xl hover:shadow-purple-500/25 transform hover:-translate-y-1 transition-all duration-300 group"
-                    disabled={!captchaToken}
+                    // disabled={!captchaToken}
                   >
                     {isSubmitting ? (
                       <>
