@@ -514,7 +514,7 @@ Projects start from just £500, with solutions tailored for SMEs and growing e-c
                     
       <ReCAPTCHA
         ref={recaptchaRef}
-        sitekey={process.env.RECAPTCHA_SITE_KEY}
+        sitekey="6LcdEMArAAAAAAShyCHuVTIu8cbIH6_qi4dwwHh6"
         onChange={(token) => setCaptchaToken(token)}
         className="mb-6"
       />
