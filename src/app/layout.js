@@ -1,12 +1,17 @@
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Montserrat } from "next/font/google";
 import "./globals.css";
 import CookieConsent from "./lib/CookieConsent";
 import { GoogleAnalytics } from '@next/third-parties/google';
 import Script from "next/script";
-import CookieOptions from "./lib/CookieOptions";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
+  subsets: ["latin"],
+});
+
+
+const monte = Montserrat({
+  variable: "--font-monteserrat-sans",
   subsets: ["latin"],
 });
 
@@ -23,12 +28,18 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <head>
+         <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
+  
+      </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={` ${monte.variable} antialiased`}
       >
         <GoogleAnalytics gaId="G-RY8PEVKH8E" />
 
-    <CookieOptions/>        
         
         {children}
 

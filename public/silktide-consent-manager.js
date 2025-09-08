@@ -24,6 +24,7 @@ class SilktideCookieBanner {
       this.showBackdrop();
     } else {
       this.showCookieIcon();
+      // this.hideCookieIcon();
     }
 
     this.setupEventListeners();
@@ -178,7 +179,8 @@ class SilktideCookieBanner {
     this.removeBanner();
     this.hideBackdrop();
     this.toggleModal(false);
-    this.showCookieIcon();
+    // this.showCookieIcon();
+    this.hideCookieIcon();
 
     this.config.cookieTypes.forEach((type) => {
       // Set localStorage and run accept/reject callbacks
@@ -505,7 +507,8 @@ class SilktideCookieBanner {
       this.updateCheckboxState(true);
 
       this.hideBackdrop();
-      this.showCookieIcon();
+      // this.showCookieIcon();
+      this.hideCookieIcon();
       this.allowBodyScroll();
 
       // Trigger optional onPreferencesClose callback

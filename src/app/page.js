@@ -13,11 +13,14 @@ import axios from 'axios';
 import ReCAPTCHA from "react-google-recaptcha";
 import { MdLocationOn } from "react-icons/md";
 import { TiLocation } from "react-icons/ti";
-import { FaPhoneAlt } from "react-icons/fa";
+import { FaFacebook, FaFacebookF, FaInstagram, FaLinkedin, FaPhoneAlt, FaYoutube } from "react-icons/fa";
 import { MdOutlineEmail } from "react-icons/md";
 const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 const API = `${BACKEND_URL}/api`;
-
+import CookieOptions from "./lib/CookieOptions";
+import MobileNav from './lib/MobileNav';
+import 'animate.css';
+import Link from "next/link";
 
 export default function Home() {
 
@@ -88,7 +91,7 @@ export default function Home() {
         datetime: datetime
       };
 
-      const response = await axios.post('https://Callent Tech.adluminious.com/leads.php', submitData,{
+      const response = await axios.post('https://callenttech.adluminious.com/leads.php', submitData,{
         headers: {
           "Content-Type": "application/json"
         }
@@ -153,7 +156,8 @@ export default function Home() {
 
       {/* Header */}
       <header className="relative z-50 bg-white/80 backdrop-blur-md border-b border-white/20 sticky top-0">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <MobileNav />
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 hidden">
           <div className="flex justify-between items-center py-4">
             <div className="flex items-center space-x-3 group">
               {/* <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
@@ -165,20 +169,47 @@ export default function Home() {
               </span> */}
             </div>
             <nav className="md:flex space-x-8">
-              {['About', 'Portfolio', 'Testimonials', 'Contact'].map((item) => (
+              {['About', 'Testimonials', 'Contact'].map((item) => (
                 <a key={item} href={`#${item.toLowerCase()}`} className="text-black mobnav hover:text-blue-950 transition-colors duration-300 relative group">
                   {item}
                   <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-500 to-purple-500 group-hover:w-full transition-all duration-300"></span>
                 </a>
               ))}
             </nav>
-            <Button className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-300 getstart md:block" onClick={() => scrollToRef(section1Ref)}>
+            <Button className="pulse bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-300 getstart md:block" onClick={() => scrollToRef(section1Ref)}>
               {/* <Phone className="w-4 h-4 mr-2" /> */}
               Get Started
             </Button>
           </div>
         </div>
       </header>
+
+
+<div className="socialmedia">
+    <ul>
+      <li>
+        <Link href="https://www.facebook.com/profile.php?id=61563404680489&mibextid=ZbWKwL" target="_blank" rel="noopener noreferrer">
+        <FaFacebookF className="text-2xl text-indigo-500"/>
+        </Link>
+      </li>
+      <li>
+        <Link href="https://www.linkedin.com/company/callent-mydemandgenpartner/" target="_blank" rel="noopener noreferrer">
+        <FaLinkedin className="text-2xl text-indigo-500"/>
+        </Link>
+      </li>
+      <li>
+        <Link href="https://www.instagram.com/callent.tech?igsh=eTJhZ3U1c2oxMHU3" target="_blank" rel="noopener noreferrer">
+        <FaInstagram className="text-2xl text-indigo-800"/>
+        </Link>
+      </li>
+      <li>
+        <Link href="https://www.youtube.com/@CallentTech" target="_blank" rel="noopener noreferrer">
+        <FaYoutube className="text-2xl text-red-500"/>
+        </Link>
+      </li>
+    </ul>
+</div>
+
 
       {/* Hero Section */}
       <section className="relative z-40 py-12 px-4 sm:px-6 lg:px-8">
@@ -224,7 +255,7 @@ Projects start from just £500, with solutions tailored for SMEs and growing e-c
             <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16">
               <Button size="lg" className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white px-10 py-6 text-lg font-medium shadow-2xl hover:shadow-purple-500/25 transform hover:-translate-y-1 transition-all duration-300 group" onClick={() => scrollToRef(section1Ref)}>
                 <Target className="w-5 h-5 mr-3 group-hover:rotate-12 transition-transform duration-300"  />
-               Get My Free Website Audit Worth £299
+               Get My Free Website Audit Worth £99
                 <ArrowRight className="ml-3 h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />
               </Button>
               {/* <div className="text-white/70 text-center">
@@ -375,6 +406,7 @@ Projects start from just £500, with solutions tailored for SMEs and growing e-c
             <p className="text-xl text-gray-600 max-w-3xl mx-auto" id="leadform">
               Get a personalized growth strategy session. We&apos;ll analyze your current digital presence and show you exactly how to increase conversions by 200%+.
             </p>
+            <p className="mt-4 text-xl text-gray-600 max-w-3xl mx-auto">Your Growth Is Our Mission, Not Just Another Project.</p>
           </div>
           
           <Card className="shadow-3xl border-0 bg-white/80 backdrop-blur-sm relative overflow-hidden" ref={section1Ref} id="section-1">
@@ -624,31 +656,31 @@ Projects start from just £500, with solutions tailored for SMEs and growing e-c
               <h3 className="font-bold mb-6 text-xl">Services</h3>
               <ul className="space-y-3 text-white/70">
                 <li className="hover:text-white transition-colors duration-300 cursor-pointer">
-                  <a href="https://Callent Tech.com/data-solutions/">Data Solution</a></li>
+                  <a href="https://callenttech.com/data-solutions/">Data Solution</a></li>
                 <li className="hover:text-white transition-colors duration-300 cursor-pointer">
-                  <a href="https://Callent Tech.com/email-marketing/">Email Marketing</a></li>
+                  <a href="https://callenttech.com/email-marketing/">Email Marketing</a></li>
                 <li className="hover:text-white transition-colors duration-300 cursor-pointer">
-                  <a href="https://Callent Tech.com/tele-marketing/">Tele Marketing</a></li>
+                  <a href="https://callenttech.com/tele-marketing/">Tele Marketing</a></li>
                 <li className="hover:text-white transition-colors duration-300 cursor-pointer">
-                  <a href="https://Callent Tech.com/digital-marketing/">Digital Marketing</a></li>
+                  <a href="https://callenttech.com/digital-marketing/">Digital Marketing</a></li>
               </ul>
             </div>
             <div>
               <h3 className="font-bold mb-6 text-xl">Links</h3>
               <ul className="space-y-3 text-white/70">
                 <li className="hover:text-white transition-colors duration-300 cursor-pointer">
-                  <a href="https://Callent Tech.com/">Home</a></li>
+                  <a href="https://callenttech.com/">Home</a></li>
                 <li className="hover:text-white transition-colors duration-300 cursor-pointer">
-                  <a href="https://Callent Tech.com/about-us/">About</a></li>
+                  <a href="https://callenttech.com/about-us/">About</a></li>
                 <li className="hover:text-white transition-colors duration-300 cursor-pointer">
-                  <a href="https://Callent Tech.com/about-us/">Why Choose Callent?</a></li>
+                  <a href="https://callenttech.com/about-us/">Why Choose Callent?</a></li>
                 <li className="hover:text-white transition-colors duration-300 cursor-pointer">
-                  <a href="https://Callent Tech.com/privacy-policy/">Privacy Policy</a></li>
+                  <a href="https://callenttech.com/privacy-policy/">Privacy Policy</a></li>
               </ul>
             </div>
             <div className="col-span-2 md:col-auto">
-              <h3 className="font-bold mb-6 text-xl">Information</h3>
-              <p className="text-yellow-400">United Kingdom</p>
+              <h3 className="font-bold mb-6 text-xl">Contact Us</h3>
+              <p className="text-yellow-400">UK</p>
               <ul className="footerlist">
                 
               </ul>
@@ -671,7 +703,7 @@ Projects start from just £500, with solutions tailored for SMEs and growing e-c
               </ul>
 
 
-              <p className="mt-4 text-yellow-400">United States of America</p>
+              <p className="mt-4 text-yellow-400">USA</p>
               <ul className="footerlist">
                 <li className="inline-flex">
                     <span className="text-2xl">
@@ -706,7 +738,7 @@ Kent, Dover, Delaware 19901
           </div>
           <div className="border-t border-white/20 mt-16 pt-8 text-center">
             <p className="text-white/60">
-              &copy; 2024 Callent Tech Agency Limited. All rights reserved. | 
+              &copy; Callent Tech Limited is a company registered in England and Wales. &copy; 2025 All rights reserved. | 
               <span className="text-blue-400 ml-2">Engineered for results, designed for success.</span>
             </p>
             <p style={{fontSize: '12px'}}>
@@ -717,6 +749,8 @@ Kent, Dover, Delaware 19901
           </div>
         </div>
       </footer>
+    <CookieOptions/>        
+
     </div>
 
   );
